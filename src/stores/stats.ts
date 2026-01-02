@@ -79,7 +79,7 @@ export const useStatsStore = defineStore("stats", () => {
             streaks.push(0);
         }
 
-        streaks[streaks.length - 1] += 1;
+        streaks[streaks.length - 1]! += 1;
         console.log("current streak", streaks[streaks.length - 1]);
     };
 

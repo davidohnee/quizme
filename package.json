@@ -16,32 +16,26 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
-    "@rive-app/canvas": "^2.19.0",
-    "pinia": "^2.1.7",
-    "vite-plugin-pwa": "^0.20.0",
-    "vue": "^3.5.11",
-    "vue-router": "^4.4.5",
+    "@rive-app/canvas": "^2.33.1",
+    "pinia": "^3.0.4",
+    "vite-plugin-pwa": "^1.2.0",
+    "vue": "^3.5.26",
+    "vue-router": "^4.6.4",
     "vuedraggable": "^4.1.0"
   },
   "devDependencies": {
-    "@storybook/addon-essentials": "^8.1.11",
-    "@storybook/addon-interactions": "^8.1.11",
-    "@storybook/addon-links": "^8.1.11",
-    "@storybook/blocks": "^8.1.11",
-    "@storybook/testing-library": "^0.0.14-next.2",
-    "@storybook/vue3": "^8.1.11",
-    "@storybook/vue3-vite": "^8.1.11",
-    "@tsconfig/node18": "^2.0.1",
-    "@types/node": "^18.16.8",
-    "@vitejs/plugin-vue": "^4.2.3",
-    "@vue/tsconfig": "^0.4.0",
+    "@storybook/vue3-vite": "^10.1.11",
+    "@tsconfig/node-ts": "^23.6.2",
+    "@types/node": "^25.0.3",
+    "@vitejs/plugin-vue": "^6.0.3",
+    "@vue/tsconfig": "^0.8.1",
     "npm-run-all": "^4.1.5",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "storybook": "^8.1.11",
-    "typescript": "~5.4.5",
-    "vite": "^5.4.8",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
+    "storybook": "^10.1.11",
+    "typescript": "~5.9.3",
+    "vite": "^7.3.0",
     "vite-plugin-monaco-editor": "^1.1.0",
-    "vue-tsc": "^2.1.6"
+    "vue-tsc": "^3.2.1"
   }
 }

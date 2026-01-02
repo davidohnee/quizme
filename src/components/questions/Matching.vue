@@ -33,8 +33,8 @@ const wrongPairs = ref({
 });
 
 const randomise = () => {
-    const leftSide = props.question.solution.map((pair) => pair?.[0]);
-    const rightSide = props.question.solution.map((pair) => pair?.[1]);
+    const leftSide = props.question.solution.map((pair) => pair[0]!);
+    const rightSide = props.question.solution.map((pair) => pair[1]!);
     correctPairs.value.left = [];
     correctPairs.value.right = [];
 
@@ -53,7 +53,7 @@ watch(() => props.question.solution, randomise, { deep: true });
 const onOptionChange = (side: number, index: number, to: string) => {
     if (!props.editable) return;
 
-    props.question.solution[index][side] = to;
+    props.question.solution[index]![side] = to;
 };
 
 const selected = ref({
@@ -101,8 +101,8 @@ const select = (index: number, side: "left" | "right") => {
     selected.value[side] = index;
 
     if (selected.value.left === null || selected.value.right === null) return;
-    const left = randomOptions.value.left[selected.value.left];
-    const right = randomOptions.value.right[selected.value.right];
+    const left = randomOptions.value.left[selected.value.left]!;
+    const right = randomOptions.value.right[selected.value.right]!;
 
     props.question.answer.push([left, right]);
 

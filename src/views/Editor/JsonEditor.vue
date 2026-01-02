@@ -1,16 +1,7 @@
 <script setup lang="ts">
-import Question from "@/components/questions/index.vue";
-import EditableText from "@/components/EditableText.vue";
 import IconButton from "@/components/IconButton.vue";
 import { useRoute, useRouter } from "vue-router";
 import { useCourseStore } from "@/stores/course";
-import Dropdown from "@/components/Dropdown.vue";
-import {
-    TYPE_OPTIONS,
-    type Question as IQuestion,
-    type IMultipleChoiceQuestion,
-    type IMultipleAnswerQuestion
-} from "@/quiz";
 import WithSidebar from "../WithSidebar.vue";
 import { ref } from "vue";
 import Monaco from "@/components/Monaco.vue";

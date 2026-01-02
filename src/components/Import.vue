@@ -59,6 +59,7 @@ const importQuestions = () => {
         </div>
         <div class="content">
             <Dropdown
+                v-if="toCourse"
                 :options="options"
                 v-model="toCourse"
             />

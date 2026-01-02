@@ -38,14 +38,14 @@ onMounted(async () => {
 });
 
 const confirm = async () => {
-    const course = what.value[0];
+    const course = what.value[0]!;
     course.remote ??= [];
     course.remote.push({
         identifier: route.params.id as string
     });
 
     await courses.addCourse(course);
-    router.push(`/courses/${what.value[0].id}`);
+    router.push(`/courses/${course.id}`);
 };
 
 const createNewCourse = () => {

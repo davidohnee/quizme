@@ -98,7 +98,7 @@ onMounted(randomise);
                         <EditableText
                             :locked="!editable"
                             no-outline
-                            v-model="display[index]"
+                            v-model="display[index]!"
                         >
                             <span>{{ element }}</span>
                         </EditableText>

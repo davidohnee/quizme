@@ -1,7 +1,7 @@
 const urlStarts = [
     "https://elearning.hslu.ch/ilias/",
     "http://localhost:",
-    "https://dxstiny.github.io/"
+    "https://davidohnee.github.io/"
 ];
 
 chrome.tabs.onActivated.addListener(function (activeInfo) {

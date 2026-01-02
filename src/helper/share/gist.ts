@@ -16,10 +16,10 @@ const push = async (course: ICourse, isPublic: boolean = false) => {
     delete copy.remote;
 
     if (course.remote?.length) {
-        const remote = course.remote[0].identifier;
+        const remote = course.remote[0]!.identifier;
         const { mode, author, tag } = fromShare(remote);
         const [gist, file] = tag.split(":");
-        jdata = await gistClient.update({ [name]: copy }, options, gist);
+        jdata = await gistClient.update({ [name]: copy }, options, gist!);
     } else {
         jdata = await gistClient.save({ [name]: copy }, options);
     }
@@ -63,7 +63,7 @@ const pull = async (identifier: string) => {
         return {
             author,
             course: jdata,
-            link: toShare(mode, author, tag).link
+            link: toShare(mode, author!, tag).link
         } as Import;
     }
     return { error: "not-found" } as Import;

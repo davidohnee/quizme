@@ -32,7 +32,7 @@ const body = (files: Files, options: IOptions) => {
         files: {
             [`_${options.filename ?? "QuizMe"}.md`]: {
                 content:
-                    "# QuizMe\n\nThis gist was created with QuizMe\n\nhttps://dxstiny.github.io/quizme/"
+                    "# QuizMe\n\nThis gist was created with QuizMe\n\nhttps://davidohnee.github.io/quizme/"
             }
         }
     };

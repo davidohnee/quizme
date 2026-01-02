@@ -64,7 +64,7 @@ ${items.map((i) => `\\item ${escapeText(i)}`).join("\n")}
 ${items
     .map(
         ([key, value]) =>
-            `\\item ${escapeText(key)} \\textrightarrow ${escapeText(value)}`
+            `\\item ${escapeText(key!)} \\textrightarrow ${escapeText(value!)}`
     )
     .join("\n")}
 \\end{itemize}
@@ -103,12 +103,12 @@ const generateSummary = (
         switch (question.type) {
             case "multiple-answer":
                 out += generators.insertList(
-                    question.solution.map((i) => question.options[i])
+                    question.solution.map((i) => question.options[i]!)
                 );
                 break;
             case "multiple-choice":
                 out += generators.insertText(
-                    question.options[question.solution]
+                    question.options[question.solution]!
                 );
                 break;
             case "ordering":

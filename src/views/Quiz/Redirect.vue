@@ -9,7 +9,7 @@ if (store.courses.length === 0) {
     router.push("/");
 } else {
     const id =
-        store.courses[Math.floor(Math.random() * store.courses.length)].id;
+        store.courses[Math.floor(Math.random() * store.courses.length)]!.id;
     router.push(`/quiz/${id}`);
 }
 </script>

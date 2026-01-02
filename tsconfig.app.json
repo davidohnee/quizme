@@ -11,7 +11,7 @@
         "target": "es5",
         "lib": ["es2022", "dom"],
         "module": "esnext",
-        "moduleResolution": "node",
+        "moduleResolution": "bundler",
         "esModuleInterop": true,
         "strict": true,
         "noImplicitAny": true,

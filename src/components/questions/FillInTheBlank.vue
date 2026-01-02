@@ -54,10 +54,10 @@ const generateQuiz = (text: string | undefined) => {
     };
 
     for (let i = gaps.length - 1; i >= 0; i--) {
-        const gap = gaps[i];
+        const gap = gaps[i]!;
         const span = document.createElement("input");
         span.classList.add("gap");
-        span.value = props.editable ? gap.gap : "";
+        span.value = (props.editable ? gap.gap : "") || "";
         span.size = (gap.length - 4) * 2;
         span.dataset.index = `${i}`;
         span.disabled = props.editable;

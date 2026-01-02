@@ -26,6 +26,9 @@ export default defineConfig({
                 start_url: "/quizme/",
                 display: "standalone",
                 description: "QuizMe is a free, open-source learning platform"
+            },
+            workbox: {
+                maximumFileSizeToCacheInBytes: 8000000
             }
         })
     ],

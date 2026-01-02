@@ -15,7 +15,7 @@ const pickQuestion = (
     questions: Question[]
 ): { pick: Question; questions: Question[] } => {
     const index = Math.floor(Math.random() * questions.length);
-    const picked = questions[index];
+    const picked = questions[index]!;
     questions = questions.filter((q) => q.id !== picked.id);
     return {
         pick: picked,

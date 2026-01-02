@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { read } from "fs";
 import * as monaco from "monaco-editor";
 import { onMounted, onUnmounted, ref, watch } from "vue";
 
@@ -54,7 +53,10 @@ watch(() => props.modelValue, updateEditor);
 </script>
 
 <template>
-    <div ref="container" style="height: 100%"></div>
+    <div
+        ref="container"
+        style="height: 100%"
+    ></div>
 </template>
 
 <style scoped>

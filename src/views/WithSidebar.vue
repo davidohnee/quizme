@@ -53,12 +53,13 @@ const toggleExpanded = () => {
                 icon="question_mark"
                 label="About"
             />
-            <div class="spacer" />
+            <div class="spacer mobile-hide" />
             <NavLink
                 to=""
                 @click="toggleExpanded"
                 :icon="expanded ? 'chevron_left' : 'chevron_right'"
                 label="Hide Sidebar"
+                class="mobile-hide"
             />
             <NavLink
                 to="/settings"
@@ -125,6 +126,10 @@ const toggleExpanded = () => {
                 font-size: 30px;
             }
         }
+    }
+
+    .mobile-hide {
+        display: none;
     }
 }
 </style>

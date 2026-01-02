@@ -35,12 +35,9 @@ const changeQuestionType = (question: IQuestion, to: string) => {
     if (currentType === to) return false;
     let verify = false;
 
-    // @ts-ignore
-    if (typeof question.solution === "array") {
-        // @ts-ignore
+    if (Array.isArray(question.solution)) {
         verify = question.solution.length > 0;
     } else if (typeof question.solution === "object") {
-        // @ts-ignore
         verify = Object.keys(question.solution).length > 0;
     } else {
         verify = !!question.solution;
@@ -55,7 +52,7 @@ const changeQuestionType = (question: IQuestion, to: string) => {
     if (to === "multiple-choice") {
         if (currentType === "multiple-answer") {
             (question as any as IMultipleChoiceQuestion).solution =
-                question.solution[0];
+                question.solution[0] || -1;
         } else {
             (question as IMultipleChoiceQuestion).options = [];
             (question as IMultipleChoiceQuestion).solution = -1;

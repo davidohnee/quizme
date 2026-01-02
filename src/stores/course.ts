@@ -139,7 +139,7 @@ export const useCourseStore = defineStore("course", () => {
             return;
         }
 
-        course.score[question.id]++;
+        course.score[question.id]!++;
     };
 
     const onIncorrectQuestion = (course: ICourse, question: Question) => {
@@ -152,7 +152,7 @@ export const useCourseStore = defineStore("course", () => {
             return;
         }
 
-        course.score[question.id]--;
+        course.score[question.id]!--;
     };
 
     const progress = (course: ICourse) => {

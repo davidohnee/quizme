@@ -78,7 +78,7 @@ const update = () => {
 const canUpdate = computed(() => {
     if (!sharingCourse.value?.remote?.length) return false;
 
-    const identifier = sharingCourse.value.remote[0].identifier;
+    const identifier = sharingCourse.value.remote[0]!.identifier;
 
     return gistClient.isMine(identifier);
 });

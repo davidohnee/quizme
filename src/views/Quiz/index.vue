@@ -101,10 +101,12 @@ const hasTip = computed(() => {
     return quiz.value.questions[currentQuestion.value]?.hint != null;
 });
 const showTip = () => {
-    alert(quiz.value.questions[currentQuestion.value].hint);
+    alert(quiz.value.questions[currentQuestion.value]!.hint);
 };
 const checking = ref(false);
 const correct = () => {
+    if (!activeQuestion.value) return false;
+
     if (["flashcard", "matching"].includes(activeQuestion.value.type)) {
         next();
         return true;
@@ -133,16 +135,18 @@ const correct = () => {
     return activeQuestion.value.answer === solution.value;
 };
 const checkText = computed(() => {
-    if (["matching", "flashcard"].includes(activeQuestion.value?.type)) {
+    if (["matching", "flashcard"].includes(activeQuestion.value?.type ?? "")) {
         return "Continue";
     }
     return "Check";
 });
 const solution = computed(() => {
-    return activeQuestion.value.solution;
+    return activeQuestion.value?.solution;
 });
 const solutionText = computed(() => {
     const question = activeQuestion.value;
+
+    if (!question) return null;
 
     if (question.type === "multiple-choice") {
         return question.options[question.solution];
@@ -208,6 +212,8 @@ const quit = () => {
 };
 
 const check = () => {
+    if (!activeQuestion.value) return;
+
     checking.value = true;
     const thisId = activeQuestion.value.id;
     const thisCourse = courses.getCourse(courseId.value) as ICourse;
@@ -227,7 +233,7 @@ const check = () => {
     if (quiz.value.questions.filter((q) => q.id === thisId).length === 1) {
         quiz.value.questions.push({ ...question });
         // remove answer
-        delete quiz.value.questions[quiz.value.questions.length - 1].answer;
+        delete quiz.value.questions[quiz.value.questions.length - 1]!.answer;
     }
 };
 
@@ -294,7 +300,7 @@ const showPreviousMistakes = () => {
                 </div>
                 <Question
                     v-else
-                    :question="quiz.questions[currentQuestion]"
+                    :question="quiz.questions[currentQuestion]!"
                     :disabled="checking"
                     :show-correction="checking"
                 />

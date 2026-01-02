@@ -1,5 +1,4 @@
 import type { ICourse } from "@/course";
-import gistClient from "@/helper/gistClient";
 import { gistShare } from "./gist";
 
 interface IImportResult {
@@ -24,8 +23,11 @@ export type Import = IImportSuccess | IImportError;
 export const toShare = (mode: "gist", author: string, tag: string) => {
     const gistUrl = `${mode}:${author}:${tag}`;
     const base64 = btoa(gistUrl);
+
+    const baseUrl = window.location.origin;
+
     return {
-        link: `https://dxstiny.github.io/quizme/#/s/${base64}`,
+        link: `${baseUrl}/quizme/#/s/${base64}`,
         identifier: base64
     };
 };

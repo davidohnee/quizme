@@ -2,4 +2,4 @@
 
 ## The free, open-source learning platform
 
-<https://dxstiny.github.io/quizme/>
+<https://davidohnee.github.io/quizme/>
