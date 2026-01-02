@@ -86,7 +86,11 @@ const showAsWrong = (index: number) => {
 
 const tryDelete = (index: number) => {
     if (props.editable) {
-        //props.question.options.splice(index, 1);
+        props.question.options.splice(index, 1);
+
+        if (props.question.solution > index) {
+            props.question.solution--;
+        }
     }
 };
 
@@ -153,20 +157,19 @@ const tryEdit = (e: KeyboardEvent) => {
                 @click="select(index)"
                 @keypress.space.stop="select(index)"
                 @keypress.enter.stop="tryEdit"
-                @keydown.delete="tryDelete(index)"
                 v-for="(option, index) in randomOptions"
             >
                 <EditableText
                     :locked="!editable"
                     no-outline
-                    v-model="randomOptions[index]"
+                    v-model="randomOptions[index]!"
                 >
                     <span>{{ option }}</span>
                 </EditableText>
                 <span
                     v-if="editable"
                     class="material-symbols-rounded delete"
-                    @click.stop="props.question.options.splice(index, 1)"
+                    @click.stop="tryDelete(index)"
                 >
                     delete
                 </span>

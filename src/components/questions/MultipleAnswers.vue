@@ -107,6 +107,23 @@ const showAsWrong = (index: number) => {
     return false;
 };
 
+const deleteOption = (index: number) => {
+    if (props.editable) {
+        props.question.options.splice(index, 1);
+
+        if (props.question.solution.includes(index)) {
+            props.question.solution.splice(
+                props.question.solution.findIndex((i) => i === index),
+                1
+            );
+        }
+
+        props.question.solution = props.question.solution.map((i) =>
+            i > index ? i - 1 : i
+        );
+    }
+};
+
 onMounted(() => {
     props.question.answer = [];
 });
@@ -155,14 +172,14 @@ onMounted(() => {
                     :locked="!editable"
                     no-outline
                     @keypress.space.stop
-                    v-model="randomOptions[index]"
+                    v-model="randomOptions[index]!"
                 >
                     <span>{{ option }}</span>
                 </EditableText>
                 <span
                     v-if="editable"
                     class="material-symbols-rounded delete"
-                    @click.stop="props.question.options.splice(index, 1)"
+                    @click.stop="deleteOption(index)"
                 >
                     delete
                 </span>
