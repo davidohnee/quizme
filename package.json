@@ -33,7 +33,7 @@
         "react-dom": "^19.2.5",
         "storybook": "^10.3.5",
         "typescript": "~6.0.3",
-        "vite": "^7.3.2",
+        "vite": "^7.3.7",
         "vite-plugin-monaco-editor": "^1.1.0",
         "vue-tsc": "^3.2.7"
     }
